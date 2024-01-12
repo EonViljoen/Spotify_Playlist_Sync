@@ -1,7 +1,5 @@
 ﻿
 
-using Spotify_Playlist_Sync.common.JsonHandler;
+using Spotify_Playlist_Sync.common.GetAccessToken;
 
-var jsonHandler = new JsonHandler("secrets.json");
-var secret = jsonHandler.JsonToObject();
-Console.WriteLine(secret.ClientId);
+await GetAccessToken.GetTokenAsync();
