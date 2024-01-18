@@ -1,9 +1,8 @@
-namespace Spotify_Playlist_Sync.common.JsonHandler;
-
 using Spotify_Playlist_Sync.models.Secret;
 using Newtonsoft.Json;
-
-public class JsonHandler{
+namespace Spotify_Playlist_Sync.common.JsonReader
+{
+    public class JsonHandler{
     private readonly string _jsonFilePath;
 
     public JsonHandler(string jsonFilePath){
@@ -18,3 +17,5 @@ public class JsonHandler{
         return secret;
     }
 }
+}
+
