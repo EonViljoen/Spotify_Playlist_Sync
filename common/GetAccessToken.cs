@@ -23,14 +23,15 @@ namespace Spotify_Playlist_Sync.common.GetAccessToken
 
             var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", $"Basic {auth64Encoding}");
-            // client.DefaultRequestHeaders.Add("Content-Type", "application/x-www-form-urlencoded"));
             var content = new FormUrlEncodedContent(new[]
                 {
                 new KeyValuePair<string, string>("grant_type", "client_credentials"),
             });
 
             var response = await client.PostAsync(secret.AccessTokenEndpoint, content);
+            // Console.WriteLine(response);
             var responseBody = await response.Content.ReadAsStringAsync();
+            // Console.WriteLine(responseBody);
             return (JsonConvert.DeserializeObject<Token>(responseBody));
         }
     }
